@@ -1,0 +1,8 @@
+services:
+  app:
+    build: .
+    image: python-ai-bot
+    container_name: ai-bot
+    env_file:
+      - .env
+    restart: unless-stopped
