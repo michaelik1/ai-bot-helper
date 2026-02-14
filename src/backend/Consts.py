@@ -1,4 +1,4 @@
 LIMIT = 5
 PREMIUM_LIMIT = 20
-DB_PATH = "./db.db"
+DB_PATH = "db.db"
 ADMIN_PW = ""
