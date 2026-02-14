@@ -2,14 +2,14 @@ from asyncio import run as asyncio_run
 from aiogram import Bot, Dispatcher
 from dotenv import load_dotenv # remove on docker
 from os import getenv
-from handlers.echo import handler_echo
-from handlers.startup import handler_startup
+from bot.handlers.startup import handler_startup
+from bot.handlers.models import handler_models
 
 async def main():
     bot_key = getenv("TGBOT_KEY")
     bot = Bot(token=bot_key)
     dp = Dispatcher()
-    dp.include_routers(handler_startup, handler_echo)
+    dp.include_routers(handler_startup, handler_models)
     await dp.start_polling(bot)
 
 if __name__ == '__main__':
