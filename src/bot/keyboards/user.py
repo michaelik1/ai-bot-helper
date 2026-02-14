@@ -1,5 +1,7 @@
 from aiogram.types import (ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove,
                            InlineKeyboardMarkup, InlineKeyboardButton)
+from aiogram.utils.keyboard import ReplyKeyboardBuilder
+from src.bot.utils.models_list import models_dict
 
 keyboard_default = ReplyKeyboardMarkup(
     keyboard=[
@@ -24,3 +26,10 @@ keyboard_models = ReplyKeyboardMarkup(
         [KeyboardButton(text="Kimi-2.5")],
     ]
 )
+
+def get_keyboard_models() -> ReplyKeyboardMarkup:
+    builder = ReplyKeyboardBuilder()
+    for model_name in models_dict.keys():
+        builder.add(KeyboardButton(text=model_name))
+    builder.adjust(2)
+    return builder.as_markup(resize_keyboard=True)
