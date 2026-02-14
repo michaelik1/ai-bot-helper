@@ -19,9 +19,6 @@ class DB:
         data = self.execute(f"select * from Users where Id={uid}").fetchone()
         return User(self, *data)
 
-    def save_user(self, user):
-        pass
-
 
 class User:
     def __init__(self, db, uid, balance=0, paid_requests=0, is_premium=False, premium_datetime=0, is_admin=False):
@@ -46,7 +43,10 @@ class User:
         self.premium_datetime = datetime.now() if value else None
 
     def save(self):
-        pass
+        cmd = f"insert into Users(id, balance, paidrequests, ispremium, premiumdate, isadmin) \
+        values({self.id}, {self.balance}, {self.paid_requests}, {self.is_premium}, \
+        {self.premium_datetime}, {self.is_admin})"
+        self.db.execute(cmd)
 
     def reset_requests(self):
         pass
