@@ -6,14 +6,17 @@ from src.bot.handlers.startup import handler_startup
 from src.bot.handlers.models import handler_models
 from src.bot.handlers.profile import handler_profile
 from src.bot.handlers.rules_and_help import handler_rules
+from src.bot.handlers.chat import handler_chat
 from src.bot.services.user_manager import UserManager
+from src.bot.services.api_manager import ApiManager
 
 async def main():
     bot_key = getenv("TGBOT_KEY")
     bot = Bot(token=bot_key)
     dp = Dispatcher()
-    dp.include_routers(handler_startup, handler_models, handler_profile, handler_rules)
+    dp.include_routers(handler_startup, handler_models, handler_profile, handler_rules, handler_chat)
     UserManager.setup()
+    ApiManager.setup()
     await dp.start_polling(bot)
 
 if __name__ == '__main__':

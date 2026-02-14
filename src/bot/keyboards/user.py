@@ -5,8 +5,16 @@ from src.bot.utils.models_list import models_dict
 
 keyboard_default = ReplyKeyboardMarkup(
     keyboard=[
+        [KeyboardButton(text="💬Новый чат")],
         [KeyboardButton(text="👤Профиль"), KeyboardButton(text="🤖Модели")],
         [KeyboardButton(text="🛟Правила и помощь")]
+    ],
+    resize_keyboard=True
+)
+
+keyboard_chat = ReplyKeyboardMarkup(
+    keyboard=[
+        [KeyboardButton(text="❌Завершить чат")]
     ],
     resize_keyboard=True
 )
