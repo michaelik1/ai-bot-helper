@@ -1,6 +1,6 @@
 import sqlite3
 from queue import Queue
-from Consts import DB_PATH
+from src.backend.Consts import DB_PATH
 
 
 class Pool:
