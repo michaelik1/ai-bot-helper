@@ -53,6 +53,8 @@ class User:
         self.premium_datetime = datetime.now() if value else None
 
     def save(self):
+        if isinstance(self.db, str) and self.db == "mock":
+            return
         cmd = """
             INSERT OR REPLACE INTO Users(
                 id, balance, paidrequests, ispremium, premiumdate, isadmin, lastmodel
