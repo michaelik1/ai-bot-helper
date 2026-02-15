@@ -1,0 +1,29 @@
+{
+  "run_id": "20260215_023536",
+  "params": {
+    "users": 200,
+    "turns": 5,
+    "ramp_up_s": 10.0,
+    "think_time_ms": 200,
+    "tg_delay_ms": 30,
+    "db_delay_ms": 5,
+    "llm_delay_ms": 250
+  },
+  "summary": {
+    "total": 1600,
+    "ok": 1600,
+    "errors": 0,
+    "seconds": 12.668625300000713,
+    "rps": 126.29626041587242,
+    "avg_ms": 204.02035581260407,
+    "p50_ms": 296.69250000006286,
+    "p95_ms": 312.5774000000092,
+    "p99_ms": 323.7340999985463,
+    "max_ms": 328.77020000159973
+  },
+  "files": {
+    "raw_csv": "load_results\\raw_20260215_023536.csv",
+    "timeseries_csv": "load_results\\timeseries_20260215_023536.csv",
+    "summary_json": "load_results\\summary_20260215_023536.json"
+  }
+}
