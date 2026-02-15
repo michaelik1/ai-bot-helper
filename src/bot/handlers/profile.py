@@ -28,4 +28,4 @@ async def build_profile_message(user_id: int) -> str:
 @handler_profile.message(F.text == "👤Профиль")
 async def profile(message: Message):
     profile_msg = await build_profile_message(message.from_user.id)
-    await message.answer(profile_msg, message.from_user.id, parse_mode="HTML")
+    await message.answer(profile_msg, parse_mode="HTML")

@@ -27,13 +27,13 @@ async def build_initial_chat_message(user_id: int) -> str:
 @handler_chat.message(F.text == "💬Новый чат")
 async def chat_start(message: Message, state: FSMContext):
     initial_msg = await build_initial_chat_message(message.from_user.id)
-    await message.answer(initial_msg, message.from_user.id, parse_mode="HTML",reply_markup=keyboard_chat)
+    await message.answer(initial_msg, parse_mode="HTML", reply_markup=keyboard_chat)
     await state.set_state(Chat.waiting_for_exit)
 
 @handler_chat.message(F.text == "❌Завершить чат")
 async def chat_exit(message: Message, state: FSMContext):
     text = "☑️Вы завершили чат"
-    await message.answer(text, message.from_user.id, reply_markup=keyboard_default)
+    await message.answer(text, reply_markup=keyboard_default)
     await state.clear()
 
 @handler_chat.message(Chat.waiting_for_exit)
